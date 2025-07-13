@@ -1,0 +1,263 @@
+:root {
+    --bg-color-start: #1f263e;
+    --bg-color-end: #0a0c1e;
+    --card-bg-color: rgba(255, 255, 255, 0.08);
+    --primary-text-color: #f0f0f0;
+    --secondary-text-color: #a0a0b0;
+    --accent-color: #00e5ff;
+    --accent-color-darker: #00b8cc;
+    --success-color: #4CAF50;
+    --error-color: #ff5252;
+    --border-color: rgba(255, 255, 255, 0.2);
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --font-family: 'Poppins', sans-serif;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--primary-text-color);
+    background-color: var(--bg-color-end);
+    overflow-x: hidden;
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    background: linear-gradient(135deg, var(--bg-color-start), var(--bg-color-end));
+    background-size: 400% 400%;
+    animation: gradient-flow 15s ease infinite;
+}
+
+@keyframes gradient-flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.main-header, .main-footer {
+    text-align: center;
+    padding: 2rem;
+}
+.main-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+.main-header nav a {
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    margin: 0 1rem;
+    transition: color 0.3s ease;
+}
+.main-header nav a:hover {
+    color: var(--accent-color);
+}
+.main-footer {
+    color: var(--secondary-text-color);
+    font-size: 0.9rem;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 2rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+@media (min-width: 992px) {
+    .main-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.card {
+    background: var(--card-bg-color);
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    box-shadow: 0 8px 32px 0 var(--shadow-color);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    height: fit-content;
+}
+.card h2 {
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+.card p {
+    color: var(--secondary-text-color);
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-text-color);
+}
+.form-group input, .form-group textarea {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    color: var(--primary-text-color);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+.form-group input::placeholder, .form-group textarea::placeholder {
+    color: var(--secondary-text-color);
+}
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background: rgba(0, 0, 0, 0.3);
+}
+textarea {
+    resize: vertical;
+}
+
+.error-text {
+    color: var(--error-color);
+    font-size: 0.8rem;
+    display: none;
+    margin-top: 0.5rem;
+}
+.form-group.error .error-text {
+    display: block;
+}
+.form-group.error input, .form-group.error textarea {
+    border-color: var(--error-color);
+}
+
+.cta-button {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background-color: var(--accent-color);
+    color: var(--bg-color-end);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.cta-button:hover, .cta-button:focus {
+    background-color: var(--accent-color-darker);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 229, 255, 0.2);
+}
+
+.todo-add-form {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+#task-input {
+    flex-grow: 1;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    color: var(--primary-text-color);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+#task-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background: rgba(0, 0, 0, 0.3);
+}
+#add-task-button {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background: var(--accent-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: all 0.3s ease;
+}
+#add-task-button:hover {
+    background: var(--accent-color-darker);
+    transform: scale(1.1);
+}
+#add-task-button svg {
+    color: var(--bg-color-end);
+}
+#task-list {
+    list-style: none;
+    max-height: 40vh;
+    overflow-y: auto;
+}
+
+#task-list li {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+    animation: fadeIn 0.5s ease-out;
+}
+#task-list li:last-child {
+    border-bottom: none;
+}
+
+.task-text {
+    flex-grow: 1;
+    margin-right: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.task-text.completed {
+    text-decoration: line-through;
+    color: var(--secondary-text-color);
+    opacity: 0.6;
+}
+
+.task-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+.task-actions button svg {
+    width: 20px;
+    height: 20px;
+    color: var(--secondary-text-color);
+    transition: all 0.3s ease;
+}
+.task-actions button:hover svg {
+    transform: scale(1.2);
+}
+.delete-btn:hover svg {
+    color: var(--error-color);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

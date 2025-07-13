@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Web Project | Modern & Professional</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="background-container"></div>
+
+    <header class="main-header">
+        <h1>My Dynamic Web Portfolio</h1>
+        <nav>
+            <a href="#contact">Contact</a>
+            <a href="#todo">To-Do App</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+
+        <section id="contact" class="card form-card">
+            <h2>Get In Touch</h2>
+            <p>Let's build something amazing together.</p>
+            <form id="contact-form" novalidate>
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="e.g., Jane Doe" required>
+                    <span class="error-text">Name is required.</span>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="e.g., jane.doe@example.com" required>
+                    <span class="error-text">Please enter a valid email.</span>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Your message here..." required></textarea>
+                    <span class="error-text">Message cannot be empty.</span>
+                </div>
+                <button type="submit" class="cta-button">Send Message</button>
+            </form>
+        </section>
+
+        <section id="todo" class="card todo-card">
+            <h2>Task Manager</h2>
+            <p>Stay organized and boost your productivity.</p>
+            <div class="todo-add-form">
+                <input type="text" id="task-input" placeholder="Add a new task...">
+                <button id="add-task-button" aria-label="Add Task">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                </button>
+            </div>
+            <ul id="task-list">
+            </ul>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <p>© 2024 Krishana Yadav | Built with HTML, CSS & JavaScript.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
